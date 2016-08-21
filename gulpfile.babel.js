@@ -31,7 +31,7 @@ gulp.task('less', () => {
     .pipe(browserSync.stream());
 });
 
-// Static Server + watching scss/html files
+// Static Server + watching less/html files
 gulp.task('serve', ['less'], function() {
 
     browserSync.init({
