@@ -127,7 +127,7 @@ a img {
 body {
   background: red;
 }
-body .container {
+body .motivation-wrapper {
   width: 200px;
   height: 200px;
   background: blue;
