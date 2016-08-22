@@ -2,14 +2,75 @@
 //@import (reference) "les file name"; //imports just needed references from file
 //@import "less file name, or file name with file format i.e. type.css"; //imports whole file
 
-body{
-  background: red;
 
-  .motivation-wrapper{
-    width: 200px;
-    height: 200px;
-    background: blue;
-    display: flex;
-    justify-content: center;
+/*variables start*/
+@white: #fff;
+@grey: #ccc;
+/*variables end*/
+
+body{
+  overflow-x: hidden;
+
+  header{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    background: @white;
+    text-align: right;
+    z-index: 2;
+    border-bottom: 1px solid @grey;
+
+    .top-menu-wrapper{
+      display: inline-block;
+      .top-menu{
+        li{
+          display: inline-block;
+          padding: 0 10px;
+        }
+      }
+    }
+
+    .top-contacts-wrapper{
+      display: inline-block;
+      margin-right: 40px;
+      .top-contacts{
+        li{
+          display: inline-block;
+          line-height: 50px;
+          padding: 0 10px;
+          .top-icon-wrapper{
+            img{
+              max-height: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .banner-wrapper{
+    width: 100%;
+    position: relative;
+    padding-top: 51px;
+
+    .logo-wrapper{
+      width: 175px;
+      height: 175px;
+      position: absolute;
+      left: 40px;
+      top: 0;
+      z-index: 3;
+      border: 1px solid @grey;
+      background: @white;
+
+      img{
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .banner{
+      width: 100%;
+    }
   }
 }

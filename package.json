@@ -28,6 +28,7 @@
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
     "gulp-less": "^3.1.0",
     "gulp-sequence": "^0.4.5"
   }

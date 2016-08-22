@@ -124,21 +124,58 @@ a img {
 :focus {
   outline: 0;
 }
+/*variables start*/
+/*variables end*/
 body {
-  background: red;
+  overflow-x: hidden;
 }
-body .motivation-wrapper {
-  width: 200px;
-  height: 200px;
-  background: blue;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+body header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background: #fff;
+  text-align: right;
+  z-index: 2;
+  border-bottom: 1px solid #ccc;
+}
+body header .top-menu-wrapper {
+  display: inline-block;
+}
+body header .top-menu-wrapper .top-menu li {
+  display: inline-block;
+  padding: 0 10px;
+}
+body header .top-contacts-wrapper {
+  display: inline-block;
+  margin-right: 40px;
+}
+body header .top-contacts-wrapper .top-contacts li {
+  display: inline-block;
+  line-height: 50px;
+  padding: 0 10px;
+}
+body header .top-contacts-wrapper .top-contacts li .top-icon-wrapper img {
+  max-height: 35px;
+}
+body .banner-wrapper {
+  width: 100%;
+  position: relative;
+  padding-top: 51px;
+}
+body .banner-wrapper .logo-wrapper {
+  width: 175px;
+  height: 175px;
+  position: absolute;
+  left: 40px;
+  top: 0;
+  z-index: 3;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+body .banner-wrapper .logo-wrapper img {
+  display: block;
+  width: 100%;
+}
+body .banner-wrapper .banner {
+  width: 100%;
 }
