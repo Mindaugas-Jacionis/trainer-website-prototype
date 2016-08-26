@@ -10,7 +10,7 @@ import sync from 'browser-sync';
 var browserSync = sync.create();
 
 gulp.task('less', () => {
-  return gulp.src('./personalTrainer/style/*.less')
+  return gulp.src('./style/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
@@ -28,29 +28,29 @@ gulp.task('less', () => {
       ],
       cascade: false
     }))
-    .pipe(gulp.dest('./personalTrainer/style'))
+    .pipe(gulp.dest('./style'))
     .pipe(browserSync.stream());
 });
 
 //perziureti
 gulp.task('babel', () => {
-  return gulp.src('./personalTrainer/script_es6/*.js')
+  return gulp.src('./script_es6/*.js')
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('./personalTrainer/script'));
+    .pipe(gulp.dest('./script'));
 });
 
 // Static Server + watching less/html files
 gulp.task('serve', ['less', 'babel'], function() {
 
     browserSync.init({
-        server: "./personalTrainer"
+        server: "./"
     });
 
-    gulp.watch("./personalTrainer/style/*.less", ['less']);
-    gulp.watch('./personalTrainer/script/*.js').on('change', browserSync.reload); //pasiziureti kas cia dedas dabar
-    gulp.watch("./personalTrainer/*.html").on('change', browserSync.reload);
+    gulp.watch("./style/*.less", ['less']);
+    gulp.watch('./script/*.js').on('change', browserSync.reload); //pasiziureti kas cia dedas dabar
+    gulp.watch("./*.html").on('change', browserSync.reload);
 });
 
 //Dev
