@@ -1,7 +1,6 @@
 'use strict';
 
 import gulp from 'gulp';
-import babel from 'gulp-babel';
 import less from 'gulp-less';
 import autoprefixer from 'gulp-autoprefixer';
 import path from 'path';
@@ -32,25 +31,15 @@ gulp.task('less', () => {
     .pipe(browserSync.stream());
 });
 
-//perziureti
-gulp.task('babel', () => {
-  return gulp.src('./script_es6/*.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    .pipe(gulp.dest('./script'));
-});
-
 // Static Server + watching less/html files
-gulp.task('serve', ['less', 'babel'], function() {
+gulp.task('serve', ['less'], function() {
 
     browserSync.init({
         server: "./"
     });
 
     gulp.watch("./style/*.less", ['less']);
-    gulp.watch('./script/*.js').on('change', browserSync.reload); //pasiziureti kas cia dedas dabar
-    gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch(["./*.html", "./script/*.js"]).on('change', browserSync.reload);
 });
 
 //Dev

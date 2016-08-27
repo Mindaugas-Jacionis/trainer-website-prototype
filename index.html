@@ -10,8 +10,8 @@
       <!-- Place favicon.ico in the root directory -->
       <link rel="stylesheet" href="style/home.css">
       <!-- carousel scripts  -->
-      <script src="../node_modules/jquery/dist/jquery.js"></script>
-      <script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+      <script src="script/libs/jquery-3.1.0.min.js"></script>
+      <!-- <script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script> -->
       <!-- home javascript -->
       <script src="script/home.js"></script>
   </head>
@@ -116,7 +116,24 @@
         <p>This is where feedback of clients will be</p>
     </section>
     <section class="map-wrapper">
-      <p>This is where location map and working hours will be</p>
+      <div id="map-container" data-coordinates="54.678867,25.287018"></div>
+      <div class="map-content">
+        <div class="pin-icon-wrapper">
+          <img src="img/pin.png" class="pin-icon" />
+        </div>
+        <h2 class="location-headline">Lokacija ir darbo laikas</h2>
+        <p class="address">Rotušės a. 27, Vilnius 01128, Lietuva</p>
+        <div class="working-hours-wrapper">
+          <h2 class="working-hours-headline">Darbo valandos</h2>
+          <p class="working-hours">Pirmadienis: 11:00 – 17:00</p>
+          <p class="working-hours">Antradienis: 11:00 – 17:00</p>
+          <p class="working-hours">Treciadienis: 11:00 – 17:00</p>
+          <p class="working-hours">Ketvirtadienis: 11:00 – 17:00</p>
+          <p class="working-hours">Penktadienis: 11:00 – 17:00</p>
+          <p class="working-hours">Sestadienis: 11:00 – 14:00</p>
+          <p class="working-hours">Sekmadienis: Nedarbo diena</p>
+        </div>
+      </div>
     </section>
     <section class="socials-wrapper">
       <h1 class="headline">Bendraukime</h1>
@@ -133,5 +150,7 @@
     <footer>
       <p>© 2016 Visos teises saugomos. Tinklapi sukure: Hero of Web.</p>
     </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmPLeBncu1zpN4-MIdvaK9_W6a9fWudug&callback=initMap"
+    async defer></script>
   </body>
 </html>

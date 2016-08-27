@@ -167,6 +167,67 @@ body{
 
 // Cia like stylingai
 
+  .map-wrapper{
+    height: 620px;
+    width: 100%;
+    position: relative;
+
+    #map-container{
+      width: 100%;
+      height: 100%;
+
+      #map-marker-content{
+        text-align: center;
+        line-height: 20px;
+        font-size: 16px;
+      }
+    }
+
+    .map-content{
+      max-width: 500px;
+      background: @white;
+      box-sizing: border-box;
+      padding: 20px 70px;
+      z-index: 999;
+      position: absolute;
+      top: 70px;
+      left: 10px;
+      min-height: 80px;
+      border-radius: 2px;
+      text-align: center;
+
+      .pin-icon-wrapper{
+        position: absolute;
+        left: 0;
+        width: 50px;
+        padding-left: 10px;
+        .pin-icon{
+          width: 50px;
+        }
+      }
+      .location-headline{
+        font-size: 24px;
+        line-height: 30px;
+      }
+      .address{
+        font-size: 18px;
+        line-height: 30px;
+      }
+
+      .working-hours-wrapper{
+        text-align: left;
+        .working-hours-headline{
+          font-size: 16px;
+          line-height: 22px;
+        }
+        .working-hours{
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
   .socials-wrapper{
     padding: 80px 0 70px;
     background: @green;
