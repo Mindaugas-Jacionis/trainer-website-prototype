@@ -1,5 +1,16 @@
 $( document ).ready(function() {
     initMap();
+
+    var owl = $("#services-carousel");
+
+  owl.owlCarousel({
+    items : 4,
+    autoPlay: 4500,
+    pagination: false,
+    navigation : true,
+    navigationText : ["",""],
+    stopOnHover : true
+  });
 });
 
 function initMap(){

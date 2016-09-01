@@ -126,6 +126,9 @@ table td {
   text-align: left;
   vertical-align: middle;
 }
+a {
+  text-decoration: none;
+}
 a img {
   border: 0;
 }
