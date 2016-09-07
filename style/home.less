@@ -10,6 +10,19 @@
 @green: #5da052;
 /*variables end*/
 
+/*Default Animations START*/
+.default-white-button-anime{
+  transition: all 0.6s linear;
+  &:hover{
+    background-color: @black;
+    color: @white;
+    a{
+      color: @white;
+    }
+  }
+}
+/*Default Animations END*/
+
 body{
   overflow-x: hidden;
 
@@ -26,33 +39,55 @@ body{
     position: fixed;
     background: @white;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
     z-index: 3;
     border-bottom: 1px solid @grey;
+    color: @black;
+    overflow: hidden;
 
     .top-menu-wrapper{
-      display: inline-block;
       .top-menu{
         li{
           display: inline-block;
-          padding: 0 10px;
+          padding: 0 15px;
+          cursor: pointer;
+          a{
+            line-height: 50px;
+            color: @black;
+            display: block;
+          }
+          .default-white-button-anime;
         }
       }
     }
 
     .top-contacts-wrapper{
-      display: inline-block;
       margin-right: 40px;
       .top-contacts{
+        display: flex;
+        flex-wrap: wrap;
         li{
-          display: inline-block;
+          cursor: pointer;
           line-height: 50px;
-          padding: 0 10px;
+          padding: 0 15px;
           a{
             line-height: 50px;
+            color: @black;
+            display: block;
           }
           .top-icon-wrapper{
-            img{
-              max-height: 35px;
+            width: 35px;
+            height: 50px;
+            transition: background 0.6s ease;
+            background: transparent url('../img/envelope-icon.png') center no-repeat;
+            background-size: contain;
+          }
+          .default-white-button-anime;
+          &:hover{
+            .top-icon-wrapper{
+              background: transparent url('../img/envelope-icon-white.png') center no-repeat;
+              background-size: contain;
             }
           }
         }
@@ -105,8 +140,10 @@ body{
           background-color: rgba(0, 0, 0, 0.6);
           bottom: 0;
           width: 100%;
-
-          &:hover{
+          transition: all 0.7s ease;
+        }
+        &:hover{
+          .item-headline{
             background-color: rgba(0, 0, 0, 1);
           }
         }
@@ -199,37 +236,49 @@ body{
         max-width: 320px;
         width: 100%;
         line-height: initial;
-        color: @black;
-
-        .post-overlay{
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          background: transparent url('../img/pattern.png') repeat-x;
-        }
+        color: @grey;
+        cursor: pointer;
+        box-sizing: border-box;
+        background: @black;
+        padding-bottom: 10px;
+        border: 1px solid @black;
+        transition: background 1s ease-out;
 
         .post-picture-link{
           display: block;
+          padding-bottom: 15px;
           .post-picture{
             display: block;
+            filter: blur(2px);
+            transition: filter 0.6s ease;
           }
         }
-        .post-headline{
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          right: 10px;
+
+        .post-headline-wrapper{
+          padding: 5px 10px;
+
+          a, .post-headline{
+            line-height: 30px;
+            font-size: 20px;
+            color: @grey;
+            z-index: 2;
+          }
         }
-        a{
-          line-height: 32px;
-          font-size: 24px;
-          color: @black;
+
+        &:hover{
+          background: @white;
+          .post-picture{
+            filter: blur(0);
+          }
+          .post-headline-wrapper{
+            a, .post-headline{
+              color: @black;
+            }
+          }
         }
       }
     }
   }
-
-// Cia like stylingai
 
   .map-wrapper{
     height: 620px;
@@ -258,7 +307,6 @@ body{
       left: 10px;
       min-height: 80px;
       border-radius: 2px;
-      //text-align: center;
 
       .pin-icon-wrapper{
         position: absolute;
@@ -289,6 +337,13 @@ body{
         .working-hours{
           font-size: 14px;
           line-height: 18px;
+
+          .weekday{
+            text-align: left;
+          }
+          .hours{
+            text-align: right;
+          }
         }
       }
     }
@@ -350,6 +405,7 @@ body{
         box-sizing: border-box;
         border: 1px solid @black;
 
+        .default-white-button-anime;
       }
     }
   }
@@ -386,7 +442,24 @@ body{
         &.instagram{
           background-image: url('../img/inst-icon.png');
         }
+
+        .default-white-button-anime;
+        &:hover{
+          transition: background 0.6s linear;
+          &.linkedin{
+            background-image: url('../img/linkedin-icon-white.png');
+          }
+          &.facebook{
+            background-image: url('../img/fb-icon-white.png');
+          }
+          &.instagram{
+            background-image: url('../img/inst-icon-white.png');
+          }
+        }
       }
+    }
+    .contact-form{
+      display: none;
     }
     .contact-button{
       background: transparent;
@@ -398,10 +471,12 @@ body{
       height: 70px;
       font-size: 20px;
       margin: 0 auto;
-      margin-top: 80px;
+      margin-top: 100px;
       text-transform: uppercase;
       font-style: bold;
       cursor: pointer;
+
+      .default-white-button-anime;
     }
   }
 

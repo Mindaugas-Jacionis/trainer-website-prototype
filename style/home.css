@@ -182,6 +182,20 @@ button::-moz-focus-inner {
 }
 /*variables start*/
 /*variables end*/
+/*Default Animations START*/
+.default-white-button-anime {
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+.default-white-button-anime:hover {
+  background-color: #000;
+  color: #fff;
+}
+.default-white-button-anime:hover a {
+  color: #fff;
+}
+/*Default Animations END*/
 body {
   overflow-x: hidden;
 }
@@ -197,30 +211,86 @@ body header {
   position: fixed;
   background: #fff;
   text-align: right;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   z-index: 3;
   border-bottom: 1px solid #e1e1e1;
-}
-body header .top-menu-wrapper {
-  display: inline-block;
+  color: #000;
+  overflow: hidden;
 }
 body header .top-menu-wrapper .top-menu li {
   display: inline-block;
-  padding: 0 10px;
+  padding: 0 15px;
+  cursor: pointer;
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+body header .top-menu-wrapper .top-menu li a {
+  line-height: 50px;
+  color: #000;
+  display: block;
+}
+body header .top-menu-wrapper .top-menu li:hover {
+  background-color: #000;
+  color: #fff;
+}
+body header .top-menu-wrapper .top-menu li:hover a {
+  color: #fff;
 }
 body header .top-contacts-wrapper {
-  display: inline-block;
   margin-right: 40px;
 }
+body header .top-contacts-wrapper .top-contacts {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 body header .top-contacts-wrapper .top-contacts li {
-  display: inline-block;
+  cursor: pointer;
   line-height: 50px;
-  padding: 0 10px;
+  padding: 0 15px;
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  transition: all 0.6s linear;
 }
 body header .top-contacts-wrapper .top-contacts li a {
   line-height: 50px;
+  color: #000;
+  display: block;
 }
-body header .top-contacts-wrapper .top-contacts li .top-icon-wrapper img {
-  max-height: 35px;
+body header .top-contacts-wrapper .top-contacts li .top-icon-wrapper {
+  width: 35px;
+  height: 50px;
+  -webkit-transition: background 0.6s ease;
+  -moz-transition: background 0.6s ease;
+  transition: background 0.6s ease;
+  background: transparent url('../img/envelope-icon.png') center no-repeat;
+  background-size: contain;
+}
+body header .top-contacts-wrapper .top-contacts li:hover {
+  background-color: #000;
+  color: #fff;
+}
+body header .top-contacts-wrapper .top-contacts li:hover a {
+  color: #fff;
+}
+body header .top-contacts-wrapper .top-contacts li:hover .top-icon-wrapper {
+  background: transparent url('../img/envelope-icon-white.png') center no-repeat;
+  background-size: contain;
 }
 body .banner-wrapper {
   width: 100%;
@@ -266,8 +336,11 @@ body #services-carousel .owl-wrapper .item .item-headline {
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
   width: 100%;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  transition: all 0.7s ease;
 }
-body #services-carousel .owl-wrapper .item .item-headline:hover {
+body #services-carousel .owl-wrapper .item:hover .item-headline {
   background-color: #000000;
 }
 body #services-carousel .owl-wrapper .item .item-picture {
@@ -367,29 +440,50 @@ body .newest-blogposts-wrapper .posts-wrapper .post {
   max-width: 320px;
   width: 100%;
   line-height: initial;
-  color: #000;
-}
-body .newest-blogposts-wrapper .posts-wrapper .post .post-overlay {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background: transparent url('../img/pattern.png') repeat-x;
+  color: #e1e1e1;
+  cursor: pointer;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #000;
+  padding-bottom: 10px;
+  border: 1px solid #000;
+  -webkit-transition: background 1s ease-out;
+  -moz-transition: background 1s ease-out;
+  transition: background 1s ease-out;
 }
 body .newest-blogposts-wrapper .posts-wrapper .post .post-picture-link {
   display: block;
+  padding-bottom: 15px;
 }
 body .newest-blogposts-wrapper .posts-wrapper .post .post-picture-link .post-picture {
   display: block;
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  -webkit-transition: -webkit-filter 0.6s ease;
+  transition: -webkit-filter 0.6s ease;
+  -moz-transition: filter 0.6s ease;
+  transition: filter 0.6s ease;
+  transition: filter 0.6s ease, -webkit-filter 0.6s ease;
 }
-body .newest-blogposts-wrapper .posts-wrapper .post .post-headline {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
+body .newest-blogposts-wrapper .posts-wrapper .post .post-headline-wrapper {
+  padding: 5px 10px;
 }
-body .newest-blogposts-wrapper .posts-wrapper .post a {
-  line-height: 32px;
-  font-size: 24px;
+body .newest-blogposts-wrapper .posts-wrapper .post .post-headline-wrapper a,
+body .newest-blogposts-wrapper .posts-wrapper .post .post-headline-wrapper .post-headline {
+  line-height: 30px;
+  font-size: 20px;
+  color: #e1e1e1;
+  z-index: 2;
+}
+body .newest-blogposts-wrapper .posts-wrapper .post:hover {
+  background: #fff;
+}
+body .newest-blogposts-wrapper .posts-wrapper .post:hover .post-picture {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+body .newest-blogposts-wrapper .posts-wrapper .post:hover .post-headline-wrapper a,
+body .newest-blogposts-wrapper .posts-wrapper .post:hover .post-headline-wrapper .post-headline {
   color: #000;
 }
 body .map-wrapper {
@@ -447,6 +541,12 @@ body .map-wrapper .map-content .working-hours-wrapper .working-hours-headline {
 body .map-wrapper .map-content .working-hours-wrapper .working-hours {
   font-size: 14px;
   line-height: 18px;
+}
+body .map-wrapper .map-content .working-hours-wrapper .working-hours .weekday {
+  text-align: left;
+}
+body .map-wrapper .map-content .working-hours-wrapper .working-hours .hours {
+  text-align: right;
 }
 body .feedback-wrapper {
   padding: 80px 0 100px;
@@ -519,6 +619,16 @@ body .feedback-wrapper .feedback-buttons-wrapper .feedback-button {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid #000;
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+body .feedback-wrapper .feedback-buttons-wrapper .feedback-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+body .feedback-wrapper .feedback-buttons-wrapper .feedback-button:hover a {
+  color: #fff;
 }
 body .socials-wrapper {
   padding: 80px 0 70px;
@@ -550,6 +660,9 @@ body .socials-wrapper .socials-list .social {
   background-position: center;
   background-size: contain;
   cursor: pointer;
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  transition: all 0.6s linear;
 }
 body .socials-wrapper .socials-list .social.linkedin {
   background-image: url('../img/linkedin-icon.png');
@@ -559,6 +672,30 @@ body .socials-wrapper .socials-list .social.facebook {
 }
 body .socials-wrapper .socials-list .social.instagram {
   background-image: url('../img/inst-icon.png');
+}
+body .socials-wrapper .socials-list .social:hover {
+  background-color: #000;
+  color: #fff;
+}
+body .socials-wrapper .socials-list .social:hover a {
+  color: #fff;
+}
+body .socials-wrapper .socials-list .social:hover {
+  -webkit-transition: background 0.6s linear;
+  -moz-transition: background 0.6s linear;
+  transition: background 0.6s linear;
+}
+body .socials-wrapper .socials-list .social:hover.linkedin {
+  background-image: url('../img/linkedin-icon-white.png');
+}
+body .socials-wrapper .socials-list .social:hover.facebook {
+  background-image: url('../img/fb-icon-white.png');
+}
+body .socials-wrapper .socials-list .social:hover.instagram {
+  background-image: url('../img/inst-icon-white.png');
+}
+body .socials-wrapper .contact-form {
+  display: none;
 }
 body .socials-wrapper .contact-button {
   background: transparent;
@@ -570,10 +707,20 @@ body .socials-wrapper .contact-button {
   height: 70px;
   font-size: 20px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 100px;
   text-transform: uppercase;
   font-style: bold;
   cursor: pointer;
+  -webkit-transition: all 0.6s linear;
+  -moz-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+body .socials-wrapper .contact-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+body .socials-wrapper .contact-button:hover a {
+  color: #fff;
 }
 body footer {
   background: #e1e1e1;
