@@ -6,10 +6,14 @@ import autoprefixer from 'gulp-autoprefixer';
 import path from 'path';
 import gulpSequence from 'gulp-sequence';
 import sync from 'browser-sync';
+import cssmin from 'gulp-cssmin';
+import uglify from 'gulp-uglify';
+// var uglify = require('uglify');
+
 var browserSync = sync.create();
 
 gulp.task('less', () => {
-  return gulp.src('./personalTrainer/style/*.less')
+  return gulp.src('./style/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
@@ -27,26 +31,27 @@ gulp.task('less', () => {
       ],
       cascade: false
     }))
-    .pipe(gulp.dest('./personalTrainer/style'))
+    .pipe(cssmin())
+    .pipe(gulp.dest('./style'))
     .pipe(browserSync.stream());
 });
 
-// Static Server + watching scss/html files
-gulp.task('serve', ['less'], function() {
+// Static Server + watching less/html files
+gulp.task('serve', ['less', 'buildJS'], function() {
 
     browserSync.init({
-        server: "./personalTrainer"
+        server: "./"
     });
 
-    gulp.watch("./personalTrainer/style/*.less", ['less']);
-    gulp.watch("./personalTrainer/*.html").on('change', browserSync.reload);
+    gulp.watch("./style/*.less", ['less']);
+    gulp.watch("./prescript/*.js", ['buildJS']);
+    gulp.watch(["./*.html", "./script/*.js"]).on('change', browserSync.reload);
 });
 
 //Dev
 gulp.task('dev', (done) => {
     gulpSequence(
         ['serve'],
-        //'browser-sync',
     done);
 });
 
@@ -54,7 +59,15 @@ gulp.task('dev', (done) => {
 gulp.task('build', (done) => {
     gulpSequence(
         ['less'],
+        ['buildJS'],
     done);
+});
+
+// /*** uglify JS ***/
+gulp.task('buildJS', () =>{
+  return gulp.src('./prescript/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('./script'));
 });
 
 //Default

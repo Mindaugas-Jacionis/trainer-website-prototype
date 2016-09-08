@@ -1,0 +1,530 @@
+@import "reset";
+//@import (reference) "les file name"; //imports just needed references from file
+//@import "less file name, or file name with file format i.e. type.css"; //imports whole file
+
+/******* FONTS START *******/
+@font-face {
+  font-family: 'Rene-Bieder-Campton-Regular';
+  src: url('../fonts/renebieder-camptonbook-webfont.otf'); /* IE9 Compat Modes */
+  src: url('../font/renebieder-camptonbook-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/renebieder-camptonbook-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../font/renebieder-camptonbook-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/renebieder-camptonbook-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/renebieder-camptonbook-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Rene-Bieder-Campton-Medium';
+  src: url('../fonts/renebieder-camptonmedium-webfont.otf'); /* IE9 Compat Modes */
+  src: url('../fonts/renebieder-camptonmedium-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/renebieder-camptonmedium-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/renebieder-camptonmedium-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/renebieder-camptonmedium-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/renebieder-camptonmedium-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+/******* FONTS END *******/
+
+/*variables start*/
+@white: #fafafa;
+@grey: #e1e1e1;
+@black: #1A1A1A;
+@green: #5da052;
+/*variables end*/
+
+/*Default Animations START*/
+.default-white-button-anime{
+  transition: all 0.6s linear;
+  &:hover{
+    background-color: @black;
+    color: @white;
+    a{
+      color: @white;
+    }
+  }
+}
+/*Default Animations END*/
+
+body{
+  overflow-x: hidden;
+  background: @white;
+
+  p, a, span, h1, h2, h3, h4, h5, h6, button{
+    font-family: 'Rene-Bieder-Campton-Regular', Fallback, sans-serif;
+  }
+
+  .headline{
+    text-transform: uppercase;
+    font-size: 32px;
+    // font-style: bold;
+    font-family: 'Rene-Bieder-Campton-Medium', Fallback, sans-serif;
+    text-align: center;
+  }
+
+  header{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    background: @white;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 3;
+    border-bottom: 2px solid @grey;
+    color: @black;
+    overflow: hidden;
+
+    .top-menu-wrapper{
+      .top-menu{
+        li{
+          display: inline-block;
+          padding: 0 15px;
+          cursor: pointer;
+          a{
+            line-height: 50px;
+            color: @black;
+            display: block;
+          }
+          .default-white-button-anime;
+        }
+      }
+    }
+
+    .top-contacts-wrapper{
+      margin-right: 40px;
+      .top-contacts{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+          cursor: pointer;
+          line-height: 50px;
+          padding: 0 15px;
+          a{
+            line-height: 50px;
+            color: @black;
+            display: block;
+          }
+          .top-icon-wrapper{
+            width: 35px;
+            height: 50px;
+            transition: background 0.6s ease;
+            background: transparent url('../img/envelope-icon.png') center no-repeat;
+            background-size: contain;
+          }
+          .default-white-button-anime;
+          &:hover{
+            .top-icon-wrapper{
+              background: transparent url('../img/envelope-icon-white.png') center no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .banner-wrapper{
+    width: 100%;
+    position: relative;
+    padding-top: 51px;
+
+    .logo-wrapper{
+      width: 175px;
+      height: 175px;
+      position: absolute;
+      left: 40px;
+      top: 0;
+      z-index: 3;
+      border: 1px solid @grey;
+      background: @white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s linear;
+
+      img{
+        display: block;
+        width: 90%;
+      }
+
+      &.hide-logo{
+        width: 0;
+        height: 0;
+      }
+    }
+
+    .banner{
+      width: 100%;
+    }
+  }
+
+  #services-carousel{
+    position: relative;
+    margin-top: -1px;
+    .owl-wrapper{
+      background: @white;
+      z-index: 1;
+      .item{
+        background: @white;
+        padding: 0px;
+        margin: 0px;
+        color: #FFF;
+        text-align: center;
+
+        .item-headline{
+          position: absolute;
+          box-sizing: border-box;
+          background-color: rgba(0, 0, 0, 0.6);
+          bottom: 0;
+          width: 100%;
+          transition: all 0.7s ease;
+        }
+        &:hover{
+          .item-headline{
+            background-color: rgba(0, 0, 0, 1);
+          }
+        }
+        .item-picture{
+          width: 100%;
+          display: block;
+        }
+        a{
+          display: block;
+          line-height: 40px;
+          font-size: 22px;
+          text-decoration: none;
+          color: @white;
+        }
+      }
+    }
+
+    .owl-controls{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      background: red;
+      transform: translateY(-50%);
+      top: 35%;
+      margin: 0;
+
+      .owl-prev, .owl-next{
+        position: absolute;
+        background: transparent url('../img/arrow.png');
+        width: 44px;
+        height: 64px;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+        cursor: pointer;
+      }
+      .owl-prev{
+        left: 25px;
+      }
+      .owl-next{
+        right: 25px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .motivation-wrapper{
+    width: 100%;
+    color: @black;
+    background: @white;
+
+    .motivation{
+      margin: 0 auto;
+      max-width: 1060px;
+      width: 100%;
+      text-align: center;
+      padding: 100px 0 120px;
+
+      .top-motivation{
+        font-size: 24px;
+        // font-style: bold;
+        font-family: 'Rene-Bieder-Campton-Medium', Fallback, sans-serif;
+        padding-bottom: 60px;
+      }
+      .bottom-motivation{
+        font-size: 18px;
+      }
+    }
+  }
+
+  .newest-blogposts-wrapper{
+    padding: 80px 0 90px;
+    background: @grey;
+
+    .posts-wrapper{
+      max-width: 1060px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-top: 100px;
+
+      .post{
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+        line-height: initial;
+        color: @grey;
+        cursor: pointer;
+        box-sizing: border-box;
+        background: @black;
+        padding-bottom: 10px;
+        border: 1px solid @black;
+        transition: background 1s ease-out;
+
+        .post-picture-link{
+          display: block;
+          padding-bottom: 15px;
+          .post-picture{
+            display: block;
+            filter: blur(2px);
+            transition: filter 0.6s ease;
+          }
+        }
+
+        .post-headline-wrapper{
+          padding: 5px 10px;
+
+          a, .post-headline{
+            line-height: 30px;
+            font-size: 20px;
+            color: @grey;
+            z-index: 2;
+          }
+        }
+
+        &:hover{
+          background: @white;
+          .post-picture{
+            filter: blur(0);
+          }
+          .post-headline-wrapper{
+            a, .post-headline{
+              color: @black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .map-wrapper{
+    height: 620px;
+    width: 100%;
+    position: relative;
+
+    #map-container{
+      width: 100%;
+      height: 100%;
+
+      #map-marker-content{
+        text-align: center;
+        line-height: 20px;
+        font-size: 16px;
+      }
+    }
+
+    .map-content{
+      max-width: 500px;
+      min-width: 430px;
+      background: @white;
+      box-sizing: border-box;
+      padding: 20px 70px;
+      z-index: 2;
+      position: absolute;
+      top: 70px;
+      left: 10px;
+      min-height: 80px;
+      border-radius: 2px;
+
+      .pin-icon-wrapper{
+        position: absolute;
+        left: 0;
+        width: 50px;
+        padding-left: 10px;
+        .pin-icon{
+          width: 50px;
+        }
+      }
+      .location-headline{
+        font-size: 24px;
+        line-height: 30px;
+      }
+      .address{
+        font-size: 18px;
+        line-height: 30px;
+      }
+
+      .working-hours-wrapper{
+        padding-top: 10px;
+        .working-hours-headline{
+          font-size: 16px;
+          line-height: 22px;
+          padding-bottom: 5px;
+        }
+        .working-hours{
+          font-size: 14px;
+          line-height: 18px;
+          display: flex;
+          justify-content: space-between;
+
+          .weekday{
+            text-align: left;
+          }
+          .hours{
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .feedback-wrapper{
+    padding: 80px 0 100px;
+    .feedback-list{
+      max-width: 1060px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 auto;
+      text-align: justify;
+      padding-top: 90px;
+
+      .feedback{
+        max-width: 300px;
+        .feedback-picture-wrapper{
+          width: 200px;
+          height: 200px;
+          overflow: hidden;
+          margin: 0 auto;
+          margin-bottom: 40px;
+          border-radius: 100%;
+
+          .feedback-picture{
+            width: 100%;
+            filter: grayscale(100%);
+          }
+        }
+        .feedback-text{
+          font-size: 16px;
+          line-height: 20px;
+          padding-bottom: 7px;
+        }
+        .feedback-client-name{
+          line-height: 24px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .feedback-buttons-wrapper{
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      margin-top: 100px;
+
+      .feedback-button{
+        width: 50%;
+        text-align: center;
+        font-size: 22px;
+        line-height: 60px;
+        cursor: pointer;
+        background: transparent;
+        box-sizing: border-box;
+        border: 1px solid @black;
+
+        .default-white-button-anime;
+      }
+    }
+  }
+
+  .socials-wrapper{
+    padding: 80px 0 70px;
+    background: @green;
+
+    .socials-list{
+      max-width: 500px;
+      width: 100%;
+      padding-top: 100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      .social{
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        border-top: 2px solid @black;
+        border-bottom: 2px solid @black;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        cursor: pointer;
+
+        &.linkedin{
+          background-image: url('../img/linkedin-icon.png');
+        }
+        &.facebook{
+          background-image: url('../img/fb-icon.png');
+        }
+        &.instagram{
+          background-image: url('../img/inst-icon.png');
+        }
+
+        .default-white-button-anime;
+        &:hover{
+          transition: background 0.6s linear;
+          &.linkedin{
+            background-image: url('../img/linkedin-icon-white.png');
+          }
+          &.facebook{
+            background-image: url('../img/fb-icon-white.png');
+          }
+          &.instagram{
+            background-image: url('../img/inst-icon-white.png');
+          }
+        }
+      }
+    }
+    .contact-form{
+      display: none;
+    }
+    .contact-button{
+      background: transparent;
+      border: 0;
+      border-top: 2px solid @black;
+      border-bottom: 2px solid @black;
+      display: block;
+      width: 500px;
+      height: 70px;
+      font-size: 20px;
+      margin: 0 auto;
+      margin-top: 100px;
+      text-transform: uppercase;
+      // font-style: bold;
+      font-family: 'Rene-Bieder-Campton-Medium', Fallback, sans-serif;
+      cursor: pointer;
+
+      .default-white-button-anime;
+    }
+  }
+
+  footer{
+    background: @grey;
+    text-align: center;
+    height: 70px;
+    p{
+      line-height: 75px;
+    }
+  }
+}
