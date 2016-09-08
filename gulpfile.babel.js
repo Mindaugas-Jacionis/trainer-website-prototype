@@ -6,6 +6,10 @@ import autoprefixer from 'gulp-autoprefixer';
 import path from 'path';
 import gulpSequence from 'gulp-sequence';
 import sync from 'browser-sync';
+import cssmin from 'gulp-cssmin';
+import uglify from 'gulp-uglify';
+// var uglify = require('uglify');
+
 var browserSync = sync.create();
 
 gulp.task('less', () => {
@@ -27,18 +31,20 @@ gulp.task('less', () => {
       ],
       cascade: false
     }))
+    .pipe(cssmin())
     .pipe(gulp.dest('./style'))
     .pipe(browserSync.stream());
 });
 
 // Static Server + watching less/html files
-gulp.task('serve', ['less'], function() {
+gulp.task('serve', ['less', 'buildJS'], function() {
 
     browserSync.init({
         server: "./"
     });
 
     gulp.watch("./style/*.less", ['less']);
+    gulp.watch("./prescript/*.js", ['buildJS']);
     gulp.watch(["./*.html", "./script/*.js"]).on('change', browserSync.reload);
 });
 
@@ -53,7 +59,15 @@ gulp.task('dev', (done) => {
 gulp.task('build', (done) => {
     gulpSequence(
         ['less'],
+        ['buildJS'],
     done);
+});
+
+// /*** uglify JS ***/
+gulp.task('buildJS', () =>{
+  return gulp.src('./prescript/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('./script'));
 });
 
 //Default

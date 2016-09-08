@@ -2,11 +2,31 @@
 //@import (reference) "les file name"; //imports just needed references from file
 //@import "less file name, or file name with file format i.e. type.css"; //imports whole file
 
+/******* FONTS START *******/
+@font-face {
+  font-family: 'Rene-Bieder-Campton-Regular';
+  src: url('../fonts/renebieder-camptonbook-webfont.otf'); /* IE9 Compat Modes */
+  src: url('../font/renebieder-camptonbook-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/renebieder-camptonbook-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../font/renebieder-camptonbook-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/renebieder-camptonbook-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/renebieder-camptonbook-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'Rene-Bieder-Campton-Medium';
+  src: url('../fonts/renebieder-camptonmedium-webfont.otf'); /* IE9 Compat Modes */
+  src: url('../fonts/renebieder-camptonmedium-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/renebieder-camptonmedium-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/renebieder-camptonmedium-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/renebieder-camptonmedium-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/renebieder-camptonmedium-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+/******* FONTS END *******/
 
 /*variables start*/
-@white: #fff;
+@white: #fafafa;
 @grey: #e1e1e1;
-@black: #000;
+@black: #1A1A1A;
 @green: #5da052;
 /*variables end*/
 
@@ -25,11 +45,17 @@
 
 body{
   overflow-x: hidden;
+  background: @white;
+
+  p, a, span, h1, h2, h3, h4, h5, h6, button{
+    font-family: 'Rene-Bieder-Campton-Regular', Fallback, sans-serif;
+  }
 
   .headline{
     text-transform: uppercase;
     font-size: 32px;
-    font-style: bold;
+    // font-style: bold;
+    font-family: 'Rene-Bieder-Campton-Medium', Fallback, sans-serif;
     text-align: center;
   }
 
@@ -42,7 +68,7 @@ body{
     display: flex;
     justify-content: flex-end;
     z-index: 3;
-    border-bottom: 1px solid @grey;
+    border-bottom: 2px solid @grey;
     color: @black;
     overflow: hidden;
 
@@ -109,10 +135,19 @@ body{
       z-index: 3;
       border: 1px solid @grey;
       background: @white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s linear;
 
       img{
         display: block;
-        width: 100%;
+        width: 90%;
+      }
+
+      &.hide-logo{
+        width: 0;
+        height: 0;
       }
     }
 
@@ -207,7 +242,8 @@ body{
 
       .top-motivation{
         font-size: 24px;
-        font-style: bold;
+        // font-style: bold;
+        font-family: 'Rene-Bieder-Campton-Medium', Fallback, sans-serif;
         padding-bottom: 60px;
       }
       .bottom-motivation{
@@ -298,6 +334,7 @@ body{
 
     .map-content{
       max-width: 500px;
+      min-width: 430px;
       background: @white;
       box-sizing: border-box;
       padding: 20px 70px;
@@ -327,7 +364,6 @@ body{
       }
 
       .working-hours-wrapper{
-        //text-align: left;
         padding-top: 10px;
         .working-hours-headline{
           font-size: 16px;
@@ -337,6 +373,8 @@ body{
         .working-hours{
           font-size: 14px;
           line-height: 18px;
+          display: flex;
+          justify-content: space-between;
 
           .weekday{
             text-align: left;
@@ -473,7 +511,8 @@ body{
       margin: 0 auto;
       margin-top: 100px;
       text-transform: uppercase;
-      font-style: bold;
+      // font-style: bold;
+      font-family: 'Rene-Bieder-Campton-Medium', Fallback, sans-serif;
       cursor: pointer;
 
       .default-white-button-anime;
